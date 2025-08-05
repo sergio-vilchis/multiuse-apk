@@ -4,15 +4,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/title_streaming_playlist_converter"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_dark"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/originCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/originLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/origin_service"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_dark"/>
+
+            <LinearLayout
+                android:id="@+id/originServicesLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:id="@+id/originSpotify"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/spotify"
+                    android:contentDescription="@string/spotify"
+                    android:padding="8dp"/>
+                <ImageView
+                    android:id="@+id/originYoutube"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/youtube_music"
+                    android:contentDescription="@string/youtube_music"
+                    android:padding="8dp"/>
+                <ImageView
+                    android:id="@+id/originApple"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/apple_music"
+                    android:contentDescription="@string/apple_music"
+                    android:padding="8dp"/>
+                <ImageView
+                    android:id="@+id/originDeezer"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/deezer"
+                    android:contentDescription="@string/deezer"
+                    android:padding="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/destinationCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/originCard"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/destinationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/destination_service"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_dark"/>
+
+            <LinearLayout
+                android:id="@+id/destinationServicesLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:id="@+id/destinationSpotify"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/spotify"
+                    android:contentDescription="@string/spotify"
+                    android:padding="8dp"/>
+                <ImageView
+                    android:id="@+id/destinationYoutube"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/youtube_music"
+                    android:contentDescription="@string/youtube_music"
+                    android:padding="8dp"/>
+                <ImageView
+                    android:id="@+id/destinationApple"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/apple_music"
+                    android:contentDescription="@string/apple_music"
+                    android:padding="8dp"/>
+                <ImageView
+                    android:id="@+id/destinationDeezer"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/deezer"
+                    android:contentDescription="@string/deezer"
+                    android:padding="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:enabled="false"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        app:cornerRadius="16dp"
+        app:backgroundTint="@color/primary"
+        android:textColor="@android:color/white"
+        android:elevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/destinationCard"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
