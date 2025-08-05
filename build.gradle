@@ -16,3 +16,21 @@ sonarqube {
         property "sonar.host.url", "https://sonarcloud.io"
     }
 }
+
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+task jacocoTestReport(type: JacocoReport) {
+    group = "Reporting"
+    description = "Genera un reporte de cobertura de código para las pruebas unitarias."
+    reports {
+        xml.required = true
+        html.required = true
+    }
+    classDirectories.setFrom(fileTree(dir: 'app/build/intermediates/javac/debug/classes', excludes: ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*']))
+    sourceDirectories.setFrom(files(['app/src/main/java']))
+    executionData.setFrom(fileTree(dir: 'app/build', includes: ['**/jacoco/testDebugUnitTest.exec']))
+}

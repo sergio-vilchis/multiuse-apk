@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Multiuse-App</string>
+    <string name="app_name">Streaming Playlist Converter</string>
+    <string name="title_streaming_playlist_converter">Streaming playlist converter</string>
+    <string name="origin_service">Origin Service</string>
+    <string name="destination_service">Destination Service</string>
+    <string name="start">Start</string>
+    <string name="spotify">Spotify</string>
+    <string name="youtube_music">YouTube Music</string>
+    <string name="apple_music">Apple Music</string>
+    <string name="deezer">Deezer</string>
 </resources>
